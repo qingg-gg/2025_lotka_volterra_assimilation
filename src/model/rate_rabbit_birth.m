@@ -1,22 +1,20 @@
-% ============================================================================================== %
-% 獵物出生率
-% 定義：兔子的出生率，考量 4 月為出生率高峰
-% 公式：alpha = alpha_base + alpha_amplitude * exp(-((m - m_peak)^2) / (2 * sigma^2)), m = t % 12
-% ============================================================================================== %
+% =============================================================================================== %
+% 兔子的自然增長率
+% 定義：兔子的出生＋死亡率，考量 4 月為出生率高峰
+% 公式：
+%   (1) alpha = alpha_base + alpha_amplitude * exp(-((m - m_peak)^2) / (2 * sigma^2)), m = t % 12
+%   (2) alpha_base / amplitude = r, r = ln(R0) / (T * 12)
+%   (3) R0 = 每年胎數 * 每胎數量 * 幼體存活率 * 平均壽命 -> 設一年三胎、存活率 20%、平均壽命 2 年
+%   (4) T = 性成熟歲數 + 平均壽命 / 2 -> 設性成熟歲數 0.4 歲
+% =============================================================================================== %
 
-function alpha = rate_rabbit_birth(t, x)
+function alpha = rate_rabbit_birth(t)
 
-arguments
-    t double
-    x double
-end
-
-x_pregment = (x / 2) * 0.5;         % 懷孕的兔子數量
-alpha_base = 2 * x_pregment; alpha_base = alpha_base / x_pregment;       % 兔子每胎最少數量
-alpha_amplitude = 8 * x_pregment; alpha_amplitude = alpha_amplitude / x_pregment;  % 兔子每胎數量 Range
-m = mod(t - 1, 12) + 1;             % 目前月份
-m_peak = 4;                         % 出生率高峰（4 月）
-sigma = 2.5;                        % 繁殖期（全年，但春季最高）
+alpha_base = 0.05;          % 最低增長率 -> 設每胎數量 2 隻
+alpha_amplitude = 0.135;    % 增長率變動幅度 -> 設每胎數量 8 隻
+m = mod(t - 1, 12);         % 目前月份
+m_peak = 4;                 % 出生率高峰
+sigma = 1.75;               % 繁殖期
 
 alpha = alpha_base + alpha_amplitude .* exp(-((m - m_peak).^2) / (2 * sigma^2));
 

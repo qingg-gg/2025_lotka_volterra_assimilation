@@ -6,16 +6,11 @@
 
 function K = environment_capacity(t)
 
-arguments
-    t double
-end
-
-K_base = 100;                               % 植被最低覆蓋率
-K_amplitude = 50;                           % 植被覆蓋範圍 Range
-t_peak = 6;                                 % 植被覆蓋高峰
+K_base = 100;                               % 最少容納兔子數
+K_amplitude = 30;                           % 容納數變動幅度
+t_peak = 6;                                 % 容納數量高峰
 phi = (pi / 2) - (2 * pi * t_peak / 12);    % 換算為相位
 
 K = K_base + K_amplitude .* sin((2 * pi * t / 12) + phi);
-assert(isfinite(K), "params contain NaN/Inf");
 
 end
