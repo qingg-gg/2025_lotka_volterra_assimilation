@@ -8,8 +8,8 @@
 % ========================================================= %
 
 clc; clear; close all;
-addpath '/Users/tiffany/Documents/NCKU/114-1 大氣資料同化導論/報告/lveq_data_assimilation/src/model'
-addpath '/Users/tiffany/Documents/NCKU/114-1 大氣資料同化導論/報告/lveq_data_assimilation/src/assimilation'
+addpath '/lveq_data_assimilation/src/model'
+addpath '/lveq_data_assimilation/src/assimilation'
 
 % Set parameters
 months = 6000; dt = 1;                                  % 時間
