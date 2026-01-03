@@ -43,9 +43,9 @@ eta_z = 1 / 10;
 x_now = now_state(1); x_past = past_state(1);           % 狀態
 y_now = now_state(2); y_past = past_state(2); 
 z_now = now_state(3); z_past = past_state(3);
-alpha_x = rate_rabbit_birth(t);                         % 自然增加率
-alpha_y = rate_fox_birth(t, beta_y, eta_y, gamma_y);
-alpha_z = rate_bear_birth(t, beta_z, eta_z, gamma_z);
+alpha_x = growth_rate_rabbit(t);                         % 自然增加率
+alpha_y = growth_rate_fox(t, beta_y, eta_y, gamma_y);
+alpha_z = growth_rate_bear(t, beta_z, eta_z, gamma_z);
 K = environment_capacity(t);                            % 環境負載力
 
 rate = zeros(size(now_state));

@@ -9,7 +9,7 @@
 %   (5) T = 性成熟歲數 + 平均壽命 / 2 -> 設性成熟歲數 5 歲
 % ===================================================================================== %
 
-function alpha = rate_bear_birth(t, beta_z, eta_z, gamma_z)
+function alpha = growth_rate_bear(t, beta_z, eta_z, gamma_z)
 
 alpha_base = 0.1;
 alpha_amplitude = eta_z * (0.008 + gamma_z) / beta_z;   % 增長率變動幅度 -> 設每胎數量 2 隻

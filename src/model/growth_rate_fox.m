@@ -9,7 +9,7 @@
 %   (5) T = 性成熟歲數 + 平均壽命 / 2 -> 設性成熟歲數 0.8 歲
 % ====================================================================================== %
 
-function alpha = rate_fox_birth(t, beta_y, eta_y, gamma_y)
+function alpha = growth_rate_fox(t, beta_y, eta_y, gamma_y)
 
 alpha_base = 0.04;                                      % 最低增長率 -> 設每胎數量 2 隻
 alpha_amplitude = eta_y * (0.04 + gamma_y) / beta_y;    % 增長率變動幅度 -> 設每胎數量 5 隻
