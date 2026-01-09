@@ -15,7 +15,7 @@ addpath '/lveq_data_assimilation/src/assimilation'
 months = 6000; dt = 1;                                  % 時間
 std_x_observation = 4; std_y_observation = 2;           % 觀測
 std_model = [3, 2, 0.5]; num_ensemble = 50;             % 模型
-past_state = [60; 25; 2]; now_state = [60; 25; 2];      % 初始狀態
+past_state = [60; 25; 2]; now_state = [60; 25; 2];      % 狀態
 
 % 真值
 truth = zeros(3, months);
